@@ -1,0 +1,94 @@
+
+/* Colors */
+$bud-green: #6ABE54;
+$slate-dark: #283538;
+$slate-darker: #1F2C2F;
+
+/* Bootstrap Color Overrides */
+$brand-primary: $bud-green;
+$brand-success: #99CC5B;
+$brand-info:    #5C9999;
+$brand-warning: #E5E65D;
+$brand-danger:  #E67373;
+$state-success-text: #557833;
+$state-info-text: #325D5C;
+$state-warning-text: #838735;
+$state-danger-text: #864041;
+$gray-darker : lighten(#000, 13.5%);
+$gray-dark   : lighten(#000, 20.5%);
+$gray        : lighten(#000, 33.5%);
+$gray-light  : lighten(#000, 60.5%);
+$gray-lighter: lighten(#000, 93.5%);
+
+
+// Scaffolding
+$body-bg: $slate-dark;
+$text-color: #fff;
+
+// Navbar
+$navbar-height: 60px;
+$navbar-default-color: #fff;
+$navbar-default-bg: $slate-darker;
+
+$navbar-default-brand-color: $slate-darker;
+
+$navbar-default-link-color: $gray-light;
+$navbar-default-link-active-color: $brand-primary;
+$navbar-default-link-hover-color: $brand-primary;
+$navbar-default-link-hover-bg: $slate-dark;
+$navbar-default-link-disabled-color: #ccc;
+
+// collapsed toggle button
+$navbar-default-toggle-icon-bar-bg: #fff;
+$navbar-default-toggle-border-color: #fff;
+$navbar-default-toggle-hover-bg: $slate-dark;
+
+
+// Dropdowns
+$dropdown-bg: $slate-darker;
+$dropdown-divider-bg: $brand-primary;
+$dropdown-link-color: $gray-light;
+$dropdown-link-active-color: $gray-darker;
+$dropdown-link-hover-bg: $slate-dark;
+$dropdown-link-hover-color: $brand-primary;
+$dropdown-link-disabled-color: $gray;
+$dropdown-fallback-border: $slate-darker;
+
+@import "bootstrap";
+
+/* global */
+body {
+  padding-top: $navbar-height;
+}
+
+#logo-hero {
+  width: 393px;
+  height: 220px;
+  margin-top:40px;
+  @include center-block();
+}
+
+#logo-hero-xs {
+  width: 60%;
+  height: auto;
+  margin-top:20px;
+  @include center-block();
+}
+
+.navbar-logo-wrapper
+{
+  padding-top:15px;
+}
+
+#navbar-logo {
+  width: 220px;
+  height: 30px;
+  @include img-retina("navbar-logo-1x.png", "navbar-logo-2x.png", 220px, 30px)
+}
+
+/* Color helpers */
+.bud-green {
+  color: $bud-green;
+}
+
+

@@ -1,3 +1,3 @@
 # Be sure to restart your server when you modify this file.
 
-Rails.application.config.session_store :cookie_store, key: '_AndrewDamen_session'
+Friend420::Application.config.session_store :cookie_store, key: '_friend420_session'

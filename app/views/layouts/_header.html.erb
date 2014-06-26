@@ -1,0 +1,67 @@
+<header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#the-great-collapsing-navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to content_tag(:div, '', id: "navbar-logo"), root_url, class: "navbar-brand navbar-logo-wrapper" %>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="the-great-collapsing-navbar">
+        <ul class="nav navbar-nav navbar-right">
+          <% static_links = Hash.new %>
+          <% static_links['News'] = { path: news_path, method: 'get'} %>
+          <% static_links['Locator'] = { path: locator_path, method: 'get'} %>
+          <% static_links['About'] = { path: about_path, method: 'get'} %>
+
+          <% static_links.each do |name, options| %>
+            <% if options[:path] == request.original_fullpath %>
+              <li class="active"> <% else %> <li> <% end %>
+            <%= link_to name, options[:path], method: options[:method] %>
+              <%# options[:path] %>
+              </li>
+          <% end %>
+          <% if logged_in? %>
+
+            <% links = Hash.new %>
+            <% links["Profile"] = { path: user_path(current_user), method: 'get'} %>
+            <% links["Users"] = { path: users_path, method: 'get'} %>
+            <% links["Account"] = { path: '#', method: 'get'} %>
+            <% links["Logout"] = { path: logout_path, method: 'delete'} %>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= "#{current_user.username}" %>
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+
+              <% links.each do |name, options| %>
+                <% if options[:path] == request.original_fullpath %>
+                <li class="active"> <% else %> <li> <% end %>
+                <%= link_to name, options[:path], method: options[:method] %></li>
+                <%# options[:path] %>
+              <% end %>
+          </li>
+
+
+
+          <% else %>
+            <% if signup_path == request.original_fullpath %>
+              <li class="active"> <% else %> <li> <% end %>
+            <%= link_to "Sign up", signup_path %></li>
+            <% if login_path == request.original_fullpath %>
+              <li class="active"> <% else %> <li> <% end %>
+            <%= link_to "Log In", login_path %></li>
+          <% end %>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+</header>

@@ -1,0 +1,30 @@
+<div class="row">
+  <div id="logo-hero-wrapper">
+    <%= image_tag 'RetinaLogo.png', id: "logo-hero", class: "hidden-xs" %>
+    
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 text-center">
+    <h2 class="bud-green">Get discounts on medical marijuana and more.</h2>
+
+    <br>
+
+    <p class="lead">Friend420 is a member driven network that offers exclusive coupons. The full site will be launching this summer. Add your email to the waiting list below to request to be one of the first to join.</p>      
+    <br>
+    <br>
+    <%= form_for(@invitation) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="input-group input-group-primary">
+        <span class="input-group-addon">
+          <i class="fa fa-envelope"></i>
+        </span>
+          <%= f.text_field :email, type: "email", class: "form-control", placeholder:"Email Address" %>
+        <span class="input-group-btn" id="request_btn">
+          <%= f.submit "Request +", class: "btn btn-primary" %>      
+        </span>
+      </div>
+    <% end %>
+    <br/>
+  </div>
+</div>

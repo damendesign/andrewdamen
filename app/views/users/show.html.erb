@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= avatar_for @user, size:200 %>
+    <h1><%= @user.username %></h1>
+    <h3><%= @user.email %></h3>
+    <h5>Member Since: <%= @user.created_at %></h5>
+  </div>
+</div>
